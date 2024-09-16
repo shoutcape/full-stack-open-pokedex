@@ -13,3 +13,7 @@ jobs:
       - name: Say Hello
         run: |
           echo "hello world"
+      - name: Now it is
+        run: |
+          date
+
