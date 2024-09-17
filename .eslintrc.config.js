@@ -1,7 +1,7 @@
 module.exports = {
   "env": {
     "browser": true,
-    "es6": true,
+    "es2021": true,
     "jest/globals": true,
     "node": true
   },
@@ -13,7 +13,7 @@ module.exports = {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 6,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "plugins": [
