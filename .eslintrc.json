@@ -1,26 +1,26 @@
-module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
+{
+  "env": {
+    "browser": true,
+    "es6": true,
     "jest/globals": true,
-    node: true
+    "node": true
   },
-  extends: [
+  "extends": [
     "eslint:recommended",
     "plugin:react/recommended"
   ],
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    ecmaVersion: "latest",
-    sourceType: "module"
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
-  plugins: [
+  "plugins": [
     "react", "jest"
   ],
-  rules: {
-    indent: [
+  "rules": {
+    "indent": [
       "error",
       2
     ],
@@ -28,15 +28,15 @@ module.exports = {
       "error",
       "unix"
     ],
-    quotes: [
+    "quotes": [
       "error",
       "single"
     ],
-    semi: [
+    "semi": [
       "error",
       "never"
     ],
-    eqeqeq: "error",
+    "eqeqeq": "error",
     "no-trailing-spaces": "error",
     "object-curly-spacing": [
       "error", "always"
@@ -48,3 +48,4 @@ module.exports = {
     "react/prop-types": 0
   }
 }
+
