@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  simple_deployment_pipeline:
+  Playwright_e2e_tests:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
@@ -17,6 +17,9 @@ jobs:
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
+      - name: Start app server
+        run: npm start
 
       - name: Run playwright tests
         run: npm run test:e2e
