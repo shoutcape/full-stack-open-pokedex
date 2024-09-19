@@ -27,6 +27,7 @@ jobs:
       - name: Test
         run: npm run test
 
-      - run: flyctl deploy --remote-only
+      - name: fly deploy
+        run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
