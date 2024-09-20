@@ -4,11 +4,14 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    types: [closed]
 
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
     concurrency: deploy-group
+    if: github.event.pull_request.merged == true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
