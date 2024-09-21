@@ -18,7 +18,7 @@ jobs:
       - name: debug commit message
         run: echo "${{ env.SKIP }}"
 
-      - if : ${{ contains(env.SKIP, "#skip") }}
+      - if : ${{ contains(env.SKIP, '#skip') }}
         run: echo "toimii"
 
     #   - uses: actions/setup-node@v4
