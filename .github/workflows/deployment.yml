@@ -10,6 +10,7 @@ on:
 env:
   SKIP: ${{ join(toJson(github.event.commits.*.message),' ') }}
 
+  # some text
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
