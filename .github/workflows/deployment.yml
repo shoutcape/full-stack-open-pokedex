@@ -3,6 +3,7 @@ name: Deployment pipeline
 on:
   push:
     branches:
+      - main
       - add-new-feature
   pull_request:
     types: [opened, synchronize, closed]
@@ -16,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: debug commit message
-        run: echo "${{ env.SKIP }}"
+        run: echo "${{ github }}"
 
       - if : ${{ contains(env.SKIP, '#skip') }}
         run: echo "toimii"
