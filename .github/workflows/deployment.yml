@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: debug commit message
-        run: echo "${{ toJson(github.event) }}"
+        run: echo "${{ toJson(github.event.commits) }}"
 
       - if : ${{ contains(env.SKIP, '#skip') }}
         run: echo "toimii"
