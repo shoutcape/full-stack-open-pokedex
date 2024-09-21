@@ -30,7 +30,7 @@ jobs:
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
-    if: ${{ github.event.pull_request.merged && !contains(toJson(github.event.head_commit.message, '#skip')) }}
+    if: ${{ github.event.pull_request.merged && !contains(github.event.head_commit.message, '#skip') }}
     steps:
       - uses: actions/checkout@v4
       - name: Bump version and push tag
@@ -39,7 +39,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
       - name: debug commit message
-        run: echo "${{ toJson(github.event) }}"
+        run: echo "${{ toJson(github.event }}"
 
 
   production_deployment:
