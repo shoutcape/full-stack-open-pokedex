@@ -59,7 +59,6 @@ jobs:
           if: success()
           with:
             severity: info
-            avatarUrl: https://avatars.githubusercontent.com/u/74509593?s=400&u=5669e74c289240db364d1f89c95a9ffc1a5db0e5&v=4
             description: to https://full-stack-open-pokedex-shoutcape.fly.dev/ by shoutcape
             footer: "Severity: informational"
             text: A new version of Pokedex deployed 
@@ -72,7 +71,6 @@ jobs:
           with:
             severity: error
             description: commit
-            avatarUrl: https://avatars.githubusercontent.com/u/74509593?s=400&u=5669e74c289240db364d1f89c95a9ffc1a5db0e5&v=4
             details: "${{ toJson(github.event.head_commit.url) }} by ${{ toJson(github.event.head_commit.author.username) }}"
             text: Build failed 
             footer: "Severity: Error"
