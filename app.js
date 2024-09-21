@@ -8,8 +8,6 @@ const PORT = process.env.PORT || 5000
 //new line here
 
 app.use(express.static('dist'))
-// eslint-disable-next-line no-undef
-break_the_build
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
