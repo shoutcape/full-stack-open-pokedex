@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: debug commit message
-        run: echo "${{ github.event.commits.*.url }} by ${{ github.event.commits.*.author.username}}"
+        run: echo "ok"
 
   #     - uses: actions/setup-node@v4
   #       with:
@@ -34,13 +34,14 @@ jobs:
   #     - name: Test
   #       run: npm run test
   #
-  # tag_release:
-  #   needs: [simple_deployment_pipeline]
-  #   runs-on: ubuntu-20.04
-  #   if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
-  #   steps:
+  tag_release:
+    needs: [simple_deployment_pipeline]
+    runs-on: ubuntu-20.04
+    if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
+    steps:
   #     - uses: actions/checkout@v4
-  #     - name: Bump version and push tag
+        - name: Bump version and push tag
+          run: echo " ${{ github.event.commits.*.url }} by ${{ github.event.commits.*.author.username}}"
   #       uses: anothrNick/github-tag-action@777684df761b882a3f4f70db16ac70d8cc78d0ea
   #       env:
   #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
