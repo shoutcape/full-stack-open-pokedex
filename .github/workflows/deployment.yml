@@ -41,7 +41,7 @@ jobs:
     steps:
   #     - uses: actions/checkout@v4
         - name: Bump version and push tag
-          run: echo " ${{ github.event.commits.*.url }} by ${{ github.event.commits.*.author.username}}"
+          run: echo " ${{ toJson(github.event.commits.*.url) }} by ${{ toJson(github.event.commits.*.author.username)}}"
   #       uses: anothrNick/github-tag-action@777684df761b882a3f4f70db16ac70d8cc78d0ea
   #       env:
   #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
