@@ -8,17 +8,15 @@ on:
     types: [opened, synchronize, closed]
 # some text
 env:
-  SKIP: ${{ join(github.event.commits.*.message,' ') }}
+  SKIP: ${{ contains(github.event.head_commit.message, '#skip') }}
 
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
+    if: ${{ github.event_name == 'push' && !env.SKIP }}
     steps:
       - uses: actions/checkout@v4
       - name: debug commit message
-        run: echo "${{ toJson(github.event.commits) }}"
-
-      - if : ${{ contains(env.SKIP, '#skip') }}
         run: echo "toimii"
 
     #   - uses: actions/setup-node@v4
