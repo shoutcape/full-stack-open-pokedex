@@ -7,7 +7,7 @@ on:
       - add-new-feature
   pull_request:
     types: [opened, synchronize, closed]
-
+# some text
 env:
   SKIP: ${{ join(github.event.commits.*.message,' ') }}
 
