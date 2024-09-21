@@ -38,6 +38,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
+      - name: debug commit message
+        run: echo "${{ github.event.head_commit.message }}"
 
 
   production_deployment:
