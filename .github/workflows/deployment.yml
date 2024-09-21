@@ -5,7 +5,7 @@ on:
     branches:
       - add-new-feature
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, closed]
 
 jobs:
   simple_deployment_pipeline:
@@ -32,6 +32,7 @@ jobs:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
     concurrency: deploy-group
+    if: github.event.pull_request.merged == true
     steps:
       - uses: actions/checkout@v4
       - name: Bump version and push tag
