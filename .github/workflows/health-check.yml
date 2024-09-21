@@ -28,7 +28,7 @@ jobs:
 
 
       - name: Failure
-        if: failure() && ${{ github.event_name == 'push'}}
+        if: ${{ failure() && github.event_name == 'push'}}
         uses: stegzilla/discord-notify@v4
         with:
           title: Pokedex health check failed
@@ -36,7 +36,3 @@ jobs:
           colour: '#FF0000'
           message: "${{ github.event.head_commit.url }} by ${{ github.event.head_commit.author.username }}"
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
-      
-
-
-  
