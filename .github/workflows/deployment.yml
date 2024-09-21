@@ -5,8 +5,7 @@ on:
     branches:
       - main
   pull_request:
-    branches: [main]
-    types: [opened, synchronize]
+    types: [opened, synchronize, closed]
 # some text
 env:
   SKIP: ${{ join(github.event.commits.*.message,' ') }}
@@ -17,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: debug commit message
-        run: echo "${{ github }}"
+        run: echo "${{ toJson(github) }}"
 
       - if : ${{ contains(env.SKIP, '#skip') }}
         run: echo "toimii"
