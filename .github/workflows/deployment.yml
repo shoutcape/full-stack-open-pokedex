@@ -1,5 +1,8 @@
 name: Deployment pipeline
 
+env:
+  webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
 on:
   push:
     branches:
@@ -53,3 +56,13 @@ jobs:
           run: flyctl deploy --remote-only
           env:
             FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+                
+        - if: ${{ success() }}
+          run:
+            echo "toimii"
+        - if: ${{ failure() }}
+          run:
+            echo "ei toimi, mut toimii"
+          # name: Discord Webhook Notify
+          # uses: rjstone/discord-webhook-notify@v1.0.4
