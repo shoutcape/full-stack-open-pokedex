@@ -8,7 +8,7 @@ on:
     types: [opened, synchronize, closed]
 
 env:
-  SKIP: ${{ toJson(github.event.commits.*.message) }}
+  SKIP: ${{ toJson(github) }}
 
 jobs:
   simple_deployment_pipeline:
