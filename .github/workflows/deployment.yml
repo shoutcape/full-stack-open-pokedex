@@ -30,6 +30,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - if: ${{ success() }}
+        run:
+          echo "toimii"
+
+      - if: ${{ failure() }}
+        run:
+          echo "ei toimi, mut toimii"
+
       - name: Test
         run: npm run test
 
@@ -40,10 +48,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@777684df761b882a3f4f70db16ac70d8cc78d0ea
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BUMP: patch
+        run:
+          echo "ok"
+        # uses: anothrNick/github-tag-action@777684df761b882a3f4f70db16ac70d8cc78d0ea
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #   DEFAULT_BUMP: patch
 
 
   production_deployment:
@@ -53,16 +63,12 @@ jobs:
         - uses: actions/checkout@v4
         - uses: superfly/flyctl-actions/setup-flyctl@master
         - name: deploy to production
-          run: flyctl deploy --remote-only
-          env:
-            FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          run:
+            echo "ok"
+          # run: flyctl deploy --remote-only
+          # env:
+          #   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
                 
-        - if: ${{ success() }}
-          run:
-            echo "toimii"
-        - if: ${{ failure() }}
-          run:
-            echo "ei toimi, mut toimii"
           # name: Discord Webhook Notify
           # uses: rjstone/discord-webhook-notify@v1.0.4
