@@ -27,7 +27,7 @@ jobs:
 
       - name: Test
         run: npm run test
-
+# some text here
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
