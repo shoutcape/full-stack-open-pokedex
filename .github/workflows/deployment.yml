@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: debug commit message
-        run: echo "${{ toJson(github.event.commits.*.url) }} by ${{ toJson(github.event.commits.*.author.username)}}"
+        run: echo "${{ github.event.commits.*.url }} by ${{ github.event.commits.*.author.username}}"
 
   #     - uses: actions/setup-node@v4
   #       with:
