@@ -3,6 +3,7 @@ on:
   pull_request:
     types: [closed]
 
+    # some text here
 jobs:
   deploy:
     name: Deploy app
