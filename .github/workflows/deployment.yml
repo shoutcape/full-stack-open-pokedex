@@ -59,10 +59,10 @@ jobs:
           if: success()
           with:
             severity: info
-            description: to https://full-stack-open-pokedex-shoutcape.fly.dev/ by shoutcape
             avatarUrl: https://avatars.githubusercontent.com/u/74509593?s=400&u=5669e74c289240db364d1f89c95a9ffc1a5db0e5&v=4
-            text: A new version of Pokedex deployed 
+            description: to https://full-stack-open-pokedex-shoutcape.fly.dev/ by shoutcape
             footer: "Severity: informational"
+            text: A new version of Pokedex deployed 
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
 
