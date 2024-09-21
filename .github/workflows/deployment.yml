@@ -39,7 +39,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
       - name: debug commit message
-        run: echo "${{ toJson(github.event }}"
+        run: echo "${{ toJson(github.event) }}"
 
 
   production_deployment:
