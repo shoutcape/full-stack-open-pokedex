@@ -30,7 +30,7 @@ jobs:
 
   tag_release:
     env: 
-      SKIP: ${{ contains(join(github.commits.*.message, ' '), '#skip') }}
+      SKIP: ${{ contains(join(github.event.commits.*.message, ' '), '#skip') }}
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
     concurrency: deploy-group
